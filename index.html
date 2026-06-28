@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAST Hosting</title>
+    <meta name="description"
+        content="VAST offers fast, reliable game server hosting that you can get by watching ads, with DDoS protection, 5-minute setup, and 24/7 support.">
+
+    <!-- Font — change the name here AND in css/style.css under --font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+
+            <a href="#" class="nav-logo">VAST<span>.</span> hosting</a>
+
+            <!-- Desktop links -->
+            <ul class="nav-links">
+                <li><a href="#pricing">Games</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Desktop buttons -->
+            <div class="nav-actions">
+                <a href="/login" class="btn btn-outline btn-sm">Log In</a>
+                <a href="#pricing" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+
+            <!-- Mobile hamburger button (js/main.js handles the click) -->
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#pricing">Games</a>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <a href="/login" style="margin-top:8px">Log In</a>
+            <a href="#pricing" class="btn btn-primary btn-sm"
+                style="margin-top:8px; text-align:center; justify-content:center;">Get Started</a>
+        </div>
+    </nav>
+
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="container">
+
+            <!-- Main headline — wrap a word in <em> to colour it purple -->
+            <h1>Free game servers for<br><em>everyone.</em></h1>
+
+            <p>Watch ads or complete quests to earn credits. Use those credits to get your free game servers.</p>
+
+            <div class="hero-actions">
+                <a href="#pricing" class="btn btn-primary">Games →</a>
+                <a href="#features" class="btn btn-outline">What's included</a>
+            </div>
+
+            <!-- Stats row — edit the numbers and labels freely -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5 min</span>
+                    <span class="stat-label">Average setup time</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Live support</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== PRICING ====================
+  To add a plan: copy one pricing-card block and paste it.
+  To mark a plan "popular": add class="popular" to the card
+  and paste the card-top-badge div inside it.
+  Change the href on each button to your real checkout URL.
+================================================== -->
+    <section id="pricing">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Games</h2>
+                <p>Chose the game that you want to start hosting.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <!-- Plan: Starter -->
+                <a href="/minecraft">
+                    <div class="banners" id="minecraft">
+                        <div class="content">
+                            <div class="card-title" id="mctitle">Minecraft</div>
+                            <div class="title-underline"></div>
+                            <div>
+                                <p class="banner-desc"><i class="fa-solid fa-memory"></i> 2–16 GB RAM</p>
+                                <p class="banner-desc"><i class="fa-solid fa-cube"></i> Paper, Fabric, Forge, Spigot</p>
+                                <p class="banner-desc"><i class="fa-solid fa-wrench"></i> Mods & plugins</p>
+                            </div>
+                        </div>
+                        <div class="banner-btn">
+                            <span class="btn btn-primary">Get your server →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/cs16">
+                    <div class="banners" id="cs16">
+                        <div class="content">
+                            <div class="card-title" id="cstitle">CS 1.6</div>
+                            <div class="title-underline"></div>
+                            <div>
+                                <p class="banner-desc"><i class="fa-solid fa-shield-halved"></i> AMX Mod X ready</p>
+                                <p class="banner-desc"><i class="fa-solid fa-people-group"></i> 32 slots</p>
+                                <p class="banner-desc"><i class="fa-solid fa-wrench"></i> Mods</p>
+                            </div>
+                        </div>
+                        <div class="banner-btn">
+                            <span class="btn btn-primary">Get your server →</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FEATURES ====================
+  To add a feature: copy one feature-card block and paste it.
+  Change the emoji in .feature-icon to any emoji you like.
+================================================== -->
+    <section id="features">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>What's included</h2>
+                <p>No surprise payment. No credit card needed. Fully free.</p>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-money-bills"></i></div>
+                
+                    <h3>Free</h3>
+                    <p>You can get free servers with just watching ads. No suprise payments.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    
+                    <h3>5-minute delivery</h3>
+                    <p>Your server is online and ready to play in under five minutes from redeeming. No waiting.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>DDoS protection</h3>
+                    <p>Always-on protection against volumetric attacks. Your players stay connected no matter what.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Software support</h3>
+                    <p>Forge, Fabric, Paper, Spigot and your custom software, all supported. Install from the panel with one click.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-floppy-disk"></i></div>
+                    <h3>Backups</h3>
+                    <p>You can reload your backups with only one click.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>24/7 support</h3>
+                    <p>Support is 24/7 available via Discord.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>Easy control panel</h3>
+                    <p>Start, stop, and configure your server from a clean web dashboard. No technical knowledge needed.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-circle-up"></i></div>
+                    <h3>Upgradeable servers</h3>
+                    <p>Need more resources? Upgrade to a higher plan in seconds without losing any data or downtime.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to launch your server?</h2>
+                <p>Host your own game server with VAST hosting</p>
+                <a href="#pricing" class="btn btn-primary">Start for free now</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FAQ ====================
+  To add a question: copy one faq-item block and paste it.
+  The accordion open/close is handled by js/main.js.
+================================================== -->
+    <section id="faq">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Frequently asked</h2>
+                <p>If your question isn't here, just reach out via Discord.</p>
+            </div>
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How fast will my server be ready?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            As soon as possible, your server is provisioned automatically. You'll
+                            receive login details within 5 minutes — usually much faster.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I customise my server?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. You can install them. When you get the admin console you can upload any file that you want to add to your server.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens if I am out of credits?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Your server will be shutdown. Your game files are not gonna be deleted.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is my server online 24/7 even when I'm offline?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Absolutely. Your server runs on our infrastructure, completely independent of your own
+                            device. It stays online around the clock — your friends can play even when you're asleep.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I upgrade my plan later?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes, you can upgrade at any time from the client dashboard. Your data is preserved and the
+                            upgrade takes effect immediately with no downtime.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand description -->
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">VAST<span style="color:var(--brand-light)">.</span> hosting</a>
+                    <p>Free game server hosting.</p>
+                    <p>Built for players, by players.</p>
+                </div>
+
+                <!-- Link column 1 -->
+                <div class="footer-col">
+                    <h4>Games</h4>
+                    <ul>
+                        <li><a href="#">Minecraft</a></li>
+                        <li><a href="#">CS 1.6</a></li>
+                    </ul>
+                </div>
+
+                <!-- Link column 2 -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+
+                <!-- Link column 3 -->
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 Vast Hosting. All rights reserved.</span>
+                <span>Made with ♥ for gamers</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

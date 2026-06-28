@@ -1,0 +1,952 @@
+/* ============================
+   VAST — style.css
+   
+   SECTIONS IN THIS FILE:
+   1. Colors & fonts  (change these to restyle the whole site)
+   2. Reset
+   3. Reusable bits  (buttons, badges, container)
+   4. Navbar
+   5. Hero
+   6. Section headings
+   7. Pricing cards
+   8. Feature cards
+   9. FAQ accordion
+   10. CTA banner
+   11. Footer
+   12. Mobile (screens under 768px)
+============================ */
+
+
+/* ============================
+   1. COLORS & FONTS
+   Change any value here and it
+   updates everywhere on the site.
+============================ */
+:root {
+    /* Brand colors */
+    --brand: #162E93;
+    /* purple — used on buttons, borders, highlights */
+    --brand-dark: #1A1953;
+    /* darker purple — used on button hover */
+    --brand-light: #2F2FE4;
+    /* lighter purple — used on text highlights */
+    --accent: #10B981;
+    /* green — used on checkmarks and "online" labels */
+
+    /* Background colors */
+    --bg: #080616;
+    /* main page background */
+    --surface: #191536;
+    /* card / section background (slightly lighter) */
+
+    /* Text colors */
+    --text: #E8E8F0;
+    /* normal text */
+    --muted: #8888A0;
+    /* secondary / dimmed text */
+    --white: #FFFFFF;
+
+    /* Borders */
+    --border: rgb(24, 24, 55);
+
+    /* Font — change the name here AND in the Google Fonts link in index.html */
+    --font: 'Inter', system-ui, sans-serif;
+
+    /* Corner rounding */
+    --radius: 10px;
+    --radius-lg: 10px;
+}
+
+
+/* ============================
+   2. RESET
+   Clears browser default styles.
+   You don't need to edit this.
+============================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Minecrafty';
+    src: url('../minecraft.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'cs16';
+    src: url('../cs16.ttf') format('truetype');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a {
+    color: var(--brand-light);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--white);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ============================
+   3. REUSABLE BITS
+   Classes used across the page.
+============================ */
+
+/* Centers content and limits max width */
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Base button style */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+/* Purple filled button */
+.btn-primary {
+    background: var(--brand);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--brand-dark);
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+/* Outlined button */
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--brand);
+    color: var(--brand-light);
+}
+
+/* Smaller button variant */
+.btn-sm {
+    padding: 8px 18px;
+    font-size: 14px;
+}
+
+/* Small pill label (e.g. "Most Popular") */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    top: -12px;
+}
+
+.badge-popular {
+    background: rgba(124, 58, 237, 0.2);
+    color: var(--brand-light);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+}
+
+
+/* ============================
+   4. NAVBAR
+   The sticky bar at the top.
+============================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13, 13, 15, 0.9);
+    backdrop-filter: blur(12px);
+    /* frosted glass effect */
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+}
+
+/* Flex row inside the navbar */
+.navbar-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+}
+
+.nav-logo span {
+    color: var(--brand-light);
+}
+
+/* the dot after VAST */
+
+/* Desktop nav links (hidden on mobile) */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+/* Log In / Get Started buttons (hidden on mobile) */
+.nav-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Hamburger icon (shown on mobile only) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+}
+
+/* Dropdown menu that appears when hamburger is clicked */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--border);
+    gap: 4px;
+}
+
+.mobile-menu a {
+    color: var(--muted);
+    font-size: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: block;
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+/* JS adds "open" class on hamburger click */
+
+
+/* ============================
+   5. HERO
+   The big intro section at the top.
+============================ */
+.hero {
+    padding: 200px 0 80px;
+    text-align: center;
+    position: relative;
+    background-image: url('../background.png');
+    /* your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Small pill above the headline (e.g. "Instant setup · 99.9% uptime") */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(124, 58, 237, 0.12);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--brand-light);
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            var(--bg) 0%,
+            /* fully opaque at the bottom */
+            transparent 250%
+            /* fades out by 60% up */
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+    /* keeps text above the overlay */
+}
+
+.hero-eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--brand-light);
+    border-radius: 50%;
+}
+
+/* Main headline */
+.hero h1 {
+    font-size: clamp(36px, 6vw, 68px);
+    /* scales with screen width */
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--brand-light);
+    /* highlighted word in the headline */
+}
+
+/* Subtitle below the headline */
+.hero p {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+
+/* Row of CTA buttons */
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Stats row at the bottom of the hero */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 250px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item .stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    display: block;
+}
+
+.stat-item .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+
+/* ============================
+   6. SECTION HEADINGS
+   The centered title + subtitle
+   used above pricing, features, FAQ.
+============================ */
+.section-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.section-header h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+
+/* ============================
+   7. PRICING CARDS
+   The plan cards in #pricing.
+============================ */
+#pricing {
+    padding: 80px 0;
+}
+
+/* Grid of cards — auto-fits as many columns as will fit */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%));
+    gap: 20px;
+}
+
+/* Individual card */
+.pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px 24px;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.banners {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* ADD THIS — needed so ::before stays inside the card */
+    justify-content: space-between;
+    border: 0px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+#minecraft {
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sourcetrail.com%2Fwp-content%2Fuploads%2F2025%2F12%2Factualizacion-Mounts-of-Mayhem-de-Minecraft-3.jpg&f=1&nofb=1&ipt=8f275cbdede6aa181ecd727e91fa45bafb0f1d322c08978c71f9df1de3e2368d');
+}
+
+#mctitle {
+    font-family: 'Minecrafty', sans-serif;
+}
+
+#cs16 {
+    background-image: url("https://cdn2.steamgriddb.com/hero_thumb/5cd39efd738459cf272922df6ef67cea.jpg");
+}
+
+#cstitle {
+    font-family: 'cs16', sans-serif;
+}
+
+/* wrapper that sits above the dark overlay */
+.banners .content {
+    position: relative;
+    z-index: 1;
+    padding: 0 24px;
+}
+
+/* the coloured line under the title */
+.title-underline {
+    width: 40px;
+    height: 3px;
+    background: #3B82F6;
+    border-radius: 2px;
+    margin: 8px 0 12px;
+}
+
+/* the description text */
+.banner-desc {
+    color: rgba(255, 255, 255, 0.846);
+    font-size: 13px;
+}
+
+.banners::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    /* match the card's border-radius */
+}
+
+.banners:hover {
+    border: 2px solid transparent;
+    border-color: #3B82F6;
+    /* change this to any colour you want */
+    transform: translateY(0px);
+}
+
+/* Hidden button on the right side of the banner */
+.banner-btn {
+    flex-shrink: 0;
+    /* stops the button from squishing */
+    padding-right: 32px;
+    /* gap from the right edge */
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Show it when the banner is hovered */
+.banners:hover .banner-btn {
+    opacity: 1;
+    transform: translateX(0);
+    /* slides into place */
+}
+
+/* The "popular" card gets a purple border and darker background */
+.pricing-card.popular {
+    border-color: var(--brand);
+    background: linear-gradient(160deg, #1A1030 0%, var(--surface) 100%);
+}
+
+/* "Most Popular" badge positioned above the card */
+.card-top-badge {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card-ram {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.card-title {
+    position: relative;
+    /* ADD THIS — lifts the text above the overlay */
+    font-weight: 800;
+    padding: 0 24px;
+    
+    font-size: 42px;
+    color: white;
+    position: relative;
+    z-index: 1;
+    padding: 0px;
+}
+
+.card-price {
+    margin-bottom: 20px;
+}
+
+.card-price .amount {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+}
+
+.card-price .period {
+    color: var(--muted);
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+/* Feature list inside each card */
+.card-features {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.card-features li .check {
+    color: var(--accent);
+    /* green checkmark */
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+
+
+@media (max-width: 768px) {
+
+    /* Stack banner content vertically and auto height */
+    .banners {
+        height: auto;
+        min-height: 160px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 24px;
+        gap: 16px;
+    }
+
+    /* Remove the padding since the banner handles it now */
+    .banners .content {
+        padding: 0;
+    }
+
+    /* Make title smaller on mobile */
+    .card-title {
+        font-size: 28px;
+    }
+
+    /* Always show the button on mobile (no hover on touch screens) */
+    .banner-btn {
+        opacity: 1;
+        transform: none;
+        padding-right: 0;
+    }
+
+    /* Make button full width */
+    .banner-btn .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================
+   8. FEATURE CARDS
+   The 8 cards in #features.
+============================ */
+#features {
+    padding: 80px 0;
+    background: var(--surface);
+    /* slightly different bg to break up the page */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.feature-card {
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+}
+
+.feature-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+}
+
+/* Emoji icon box */
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(124, 58, 237, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.feature-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+
+/* ============================
+   9. FAQ ACCORDION
+   Click a question to expand it.
+   JS adds the "open" class.
+============================ */
+#faq {
+    padding: 80px 0;
+}
+
+.faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* Clickable question row */
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.15s;
+}
+
+.faq-question:hover {
+    color: var(--white);
+}
+
+/* The "+" icon on the right */
+.faq-question .faq-icon {
+    font-size: 20px;
+    color: var(--muted);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+}
+
+/* Rotate "+" to "×" when open */
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    color: var(--brand-light);
+}
+
+/* Answer — hidden by default, expands when .open is added */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.faq-answer-inner {
+    padding: 0 24px 20px;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 300px;
+}
+
+
+/* ============================
+   10. CTA BANNER
+   The "Ready to launch?" box.
+============================ */
+.cta-banner {
+    padding: 80px 0;
+    background: var(--surface);
+    text-align: center;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(91, 33, 182, 0.1));
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+}
+
+.cta-box h2 {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.cta-box p {
+    color: var(--muted);
+    margin-bottom: 32px;
+    font-size: 16px;
+}
+
+
+/* ============================
+   11. FOOTER
+============================ */
+footer {
+    padding: 56px 0 32px;
+    border-top: 1px solid var(--border);
+}
+
+/* 4-column grid: brand description + 3 link columns */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.footer-brand p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 12px;
+    max-width: 240px;
+    line-height: 1.7;
+}
+
+.footer-col h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: color 0.15s;
+}
+
+.footer-col ul a:hover {
+    color: var(--text);
+}
+
+/* Copyright bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+/* ============================
+   12. MOBILE (under 768px)
+   Hides desktop nav, shows hamburger,
+   stacks columns vertically.
+============================ */
+@media (max-width: 768px) {
+
+    /* Hide desktop nav, show hamburger instead */
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Stack footer columns 2 per row */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Reduce hero padding */
+    .hero {
+        padding: 64px 0 48px;
+    }
+
+    .hero-stats {
+        gap: 32px;
+    }
+
+    /* Reduce section padding */
+    #pricing,
+    #features,
+    #faq,
+    .cta-banner,
+    footer {
+        padding: 56px 0;
+    }
+
+    .cta-box {
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Stack everything to 1 column on very small screens */
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
